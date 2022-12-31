@@ -1,6 +1,6 @@
-package net.fabricmc.example.mixin;
+package io.github.saturn56.mod.mixin;
 
-import net.fabricmc.example.ExampleMod;
+import io.github.saturn56.mod.ExampleMod;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,4 +13,5 @@ public class ExampleMixin {
 	private void init(CallbackInfo info) {
 		ExampleMod.LOGGER.info("This line is printed by an example mod mixin!");
 	}
+
 }

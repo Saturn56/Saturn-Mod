@@ -1,12 +1,19 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.example.mixin",
+  "package": "io.github.saturn56.mod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ClientConnectionMixin"
   ],
   "client": [
-    "ExampleMixin"
+    "ClientConnectionMixin",
+    "ExampleMixin",
+    "GameMenuScreenMixin",
+    "TitleScreenMixin",
+    "FishingBobberEntityMixin",
+    "clientPlayerNetworkHandler",
+    "BlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
