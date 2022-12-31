@@ -1,6 +1,7 @@
 package io.github.saturn56.mod.hacks;
 
 import io.github.saturn56.mod.SaturnMod;
+import io.github.saturn56.mod.mixinterface.IKeyBinding;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.AlwaysSelectedEntryListWidget;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -58,47 +59,37 @@ public class FlightHack {
         }
         if(tickCounter > antiKickInterval){
             tickCounter = 0;
-
         }
         if(tickCounter == 0 ){
-            setMotionY(antiKickDistance);
+            if(MC.options.sneakKey.isPressed() && !MC.options.jumpKey.isPressed()){
+                tickCounter = 3;
+            } else {
+                setMotionY(antiKickDistance);
+            }
+
         }
         if (tickCounter == 1){
+            SaturnMod.LOGGER.info("fall");
             setMotionY(-antiKickDistance);
-        }
-        if (tickCounter == 2){
-            setMotionY(0);
         }
         tickCounter++;
     }
 
     private static void setMotionY(double motionY)
     {
-        if (MC.options.sneakKey.isPressed()){
-            MC.options.sneakKey.setPressed(false);
-            sneakWasPressed = true;
-        } else {
-            sneakWasPressed = false;
-        }
-        if (MC.options.jumpKey.isPressed()){
-            MC.options.jumpKey.setPressed(false);
-            jumpWasPressed = true;
-        } else {
-            jumpWasPressed = false;
-        }
-
-
+        MC.options.sneakKey.setPressed(false);
+        MC.options.jumpKey.setPressed(false);
 
         Vec3d velocity = MC.player.getVelocity();
         MC.player.setVelocity(velocity.x, motionY, velocity.z);
     }
     private static void restoreKeyPresses()
     {
-        if(sneakWasPressed){
-            MC.options.sneakKey.setPressed(true);
-        }
-        if(jumpWasPressed){
-            MC.options.jumpKey.setPressed(true);
+        KeyBinding[] bindings = {MC.options.jumpKey, MC.options.sneakKey};
+
+        for(KeyBinding binding : bindings) {
+            //binding.setPressed(((IKeyBinding) binding).isActallyPressed());
+            binding.setPressed(binding.isPressed());
         }
     }
 }
