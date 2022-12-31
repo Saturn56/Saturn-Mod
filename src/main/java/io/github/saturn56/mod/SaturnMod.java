@@ -28,6 +28,7 @@ public class SaturnMod implements ModInitializer {
 		instance = this;
 		LOGGER.info("Hello Fabric world!");
 		ClientTickEvents.START_CLIENT_TICK.register(client1 -> AutoFishing.tick(client));
+		ClientTickEvents.START_CLIENT_TICK.register(client1 -> FlightHack.tick(client));
 	}
 
 	private static SaturnMod instance;
