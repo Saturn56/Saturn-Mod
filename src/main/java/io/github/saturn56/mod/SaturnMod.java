@@ -2,6 +2,7 @@ package io.github.saturn56.mod;
 
 import io.github.saturn56.mod.hacks.AutoFishing;
 import io.github.saturn56.mod.hacks.FlightHack;
+import io.github.saturn56.mod.hacks.noFall;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
@@ -29,6 +30,7 @@ public class SaturnMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		ClientTickEvents.START_CLIENT_TICK.register(client1 -> AutoFishing.tick(client));
 		ClientTickEvents.START_CLIENT_TICK.register(client1 -> FlightHack.tick(client));
+		ClientTickEvents.START_CLIENT_TICK.register(client1 -> noFall.tick());
 	}
 
 	private static SaturnMod instance;
