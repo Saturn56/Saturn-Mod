@@ -1,7 +1,7 @@
 package io.github.saturn56.mod.mixin;
 
 
-import io.github.saturn56.mod.ExampleMod;
+import io.github.saturn56.mod.SaturnMod;
 import io.github.saturn56.mod.hacks.xRay;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -25,7 +25,7 @@ public class BlockMixin {
             cancellable = true)
     private static void shouldDrawSide(BlockState state, BlockView reader, BlockPos pos, Direction face,
                                        BlockPos blockPos, CallbackInfoReturnable<Boolean> ci){
-        if(ExampleMod.getInstance().Toggle_xRay){
+        if(SaturnMod.getInstance().Toggle_xRay){
             ci.setReturnValue(xRay.showBlock(state));
         }
     }

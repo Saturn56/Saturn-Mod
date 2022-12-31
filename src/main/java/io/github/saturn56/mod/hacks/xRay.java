@@ -1,6 +1,6 @@
 package io.github.saturn56.mod.hacks;
 
-import io.github.saturn56.mod.ExampleMod;
+import io.github.saturn56.mod.SaturnMod;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.registry.Registry;
 
@@ -19,10 +19,10 @@ public class xRay {
 
     public static boolean showBlock(BlockState state) {
         String name = Registry.BLOCK.getId(state.getBlock()).toString();
-        ExampleMod.LOGGER.info(name);
+        SaturnMod.LOGGER.info(name);
         if (xRayList().contains(state.getBlock().toString())){
-            ExampleMod.LOGGER.info(name);
-            ExampleMod.LOGGER.info("rendered");
+            SaturnMod.LOGGER.info(name);
+            SaturnMod.LOGGER.info("rendered");
             return true;
         }
         return false;

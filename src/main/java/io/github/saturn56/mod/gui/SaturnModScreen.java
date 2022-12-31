@@ -2,7 +2,7 @@ package io.github.saturn56.mod.gui;
 
 
 
-import io.github.saturn56.mod.ExampleMod;
+import io.github.saturn56.mod.SaturnMod;
 import io.github.saturn56.mod.hacks.AutoFishing;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -49,16 +49,16 @@ public class SaturnModScreen extends Screen {
                         }).dimensions(this.width / 2 - 100, this.height / 6 + 90, 200, 20).build());*/
     }
     public void T_xRay(ButtonWidget b){
-        if(ExampleMod.getInstance().Toggle_xRay){
-            ExampleMod.getInstance().Toggle_xRay = false;
+        if(SaturnMod.getInstance().Toggle_xRay){
+            SaturnMod.getInstance().Toggle_xRay = false;
         }else {
-            ExampleMod.getInstance().Toggle_xRay = true;
+            SaturnMod.getInstance().Toggle_xRay = true;
         }
         b.setMessage(Text.literal("X-Ray " + G_xRay()));
     }
 
     String G_xRay(){
-        if(ExampleMod.getInstance().Toggle_xRay){
+        if(SaturnMod.getInstance().Toggle_xRay){
             return "enabled";
         }else {
             return "disabled";

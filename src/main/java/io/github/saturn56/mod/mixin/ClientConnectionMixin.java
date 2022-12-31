@@ -1,6 +1,6 @@
 package io.github.saturn56.mod.mixin;
 
-import io.github.saturn56.mod.ExampleMod;
+import io.github.saturn56.mod.SaturnMod;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.network.Packet;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
@@ -18,11 +18,11 @@ public class ClientConnectionMixin {
             return;
         }
 
-        if (!ExampleMod.getInstance().Toggle_ClientConnectionPacket){
+        if (!SaturnMod.getInstance().Toggle_ClientConnectionPacket){
             return;
         }
 
-        ExampleMod.LOGGER.info(packet.getClass().getName());
+        SaturnMod.LOGGER.info(packet.getClass().getName());
     }
 
 }

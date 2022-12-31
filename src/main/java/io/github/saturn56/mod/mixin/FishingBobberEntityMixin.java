@@ -1,6 +1,6 @@
 package io.github.saturn56.mod.mixin;
 
-import io.github.saturn56.mod.ExampleMod;
+import io.github.saturn56.mod.SaturnMod;
 import io.github.saturn56.mod.hacks.AutoFishing;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.data.TrackedData;
@@ -24,11 +24,19 @@ public class FishingBobberEntityMixin {
 
         //ExampleMod.LOGGER.info("tick: "+caughtFish+" | "+waitCountdown);
 
-        if(caughtFish && ExampleMod.getInstance().Toggle_AutoFish){
+        if(caughtFish && SaturnMod.getInstance().Toggle_AutoFish){
             client.interactionManager.interactItem(client.player, Hand.MAIN_HAND);
             AutoFishing.setRecastRod(20);
         }
     }
+
+    /*
+    private boolean isInOpenWater(FishingBobberEntity bobber)
+    {
+        return ((IFishingBobberEntity)bobber)
+                .checkOpenWaterAround(bobber.getBlockPos());
+    }
+    */
 
     /*
     @Inject(at = @At("TAIL"), method = "tick")

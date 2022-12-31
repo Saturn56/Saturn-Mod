@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.saturn56.mod.ExampleMod"
+      "io.github.saturn56.mod.SaturnMod"
     ]
   },
   "mixins": [

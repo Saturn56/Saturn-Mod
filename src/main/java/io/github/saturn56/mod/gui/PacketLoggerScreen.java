@@ -1,6 +1,6 @@
 package io.github.saturn56.mod.gui;
 
-import io.github.saturn56.mod.ExampleMod;
+import io.github.saturn56.mod.SaturnMod;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.option.GameOptions;
@@ -44,11 +44,11 @@ public class PacketLoggerScreen extends Screen{
     }
 
     public void T_SoundPacket(ButtonWidget b){
-        ExampleMod.getInstance().Toggle_SoundPacket = !ExampleMod.getInstance().Toggle_SoundPacket;
+        SaturnMod.getInstance().Toggle_SoundPacket = !SaturnMod.getInstance().Toggle_SoundPacket;
         b.setMessage(Text.literal("SoundPacket " + G_SoundPacket()));
     }
     public String G_SoundPacket(){
-        if(ExampleMod.getInstance().Toggle_SoundPacket){
+        if(SaturnMod.getInstance().Toggle_SoundPacket){
             return "enabled";
         }else {
             return "disabled";

@@ -1,6 +1,6 @@
 package io.github.saturn56.mod.mixin;
 
-import io.github.saturn56.mod.ExampleMod;
+import io.github.saturn56.mod.SaturnMod;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.packet.s2c.play.PlaySoundS2CPacket;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,9 +12,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class clientPlayerNetworkHandler {
     @Inject(method = "onPlaySound", at = @At("HEAD"))
     public void onPlaySound(PlaySoundS2CPacket packet, CallbackInfo ci){
-        if (!ExampleMod.getInstance().Toggle_SoundPacket){
+        if (!SaturnMod.getInstance().Toggle_SoundPacket){
             return;
         }
-        ExampleMod.LOGGER.info(packet.getClass().getName());
+        SaturnMod.LOGGER.info(packet.getClass().getName());
     }
 }
