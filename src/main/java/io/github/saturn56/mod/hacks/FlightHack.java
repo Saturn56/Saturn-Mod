@@ -54,7 +54,7 @@ public class FlightHack {
             return;
         }
         boolean allowedFlying = client.player.getAbilities().allowFlying;
-        if(!allowedFlying){
+        if(!allowedFlying || !Toggle || client.player.isCreative() || client.player.isSpectator()){
             return;
         }
         if(tickCounter > antiKickInterval){
